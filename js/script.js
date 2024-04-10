@@ -185,20 +185,43 @@ console.log(generatePassword(10));
 
 console.info("Pour les questions suivantes enrichissez l'objet 'newbie' ci-dessous.");
 
+
 const newbie = {
     firstName: "Paul",
     lastName: "Bismuth",
-    birthdate: "1995-02-14",
+    birthdate: "1995-04-11",
     job: "web developer",
     city: "Detroit",
-    skills: ["HTML", "CSS"]
+    skills: ["HTML", "CSS"],
+
+    /**
+     * Get age from birthdate object.
+     * @returns {number} age of the object
+     */
+    getAge: function () {
+        let birthDate = new Date(this.birthdate);
+        
+        // Is the birthdate a valid date ?
+        if (!(birthDate instanceof Date) || isNaN(birthDate)) return;
+    
+        let today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        if (
+            today.getMonth() < birthDate.getMonth()
+            ||
+            (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate())
+        ) {
+            age--;
+        }
+        return age;
+    }
 };
 
 /* ------------------------------------------------------*/
 
 console.info("7/ Implémentez une méthode retournant l'âge de Paul.");
 
-console.log();
+console.log(newbie.getAge());
 
 /* ------------------------------------------------------*/
 
