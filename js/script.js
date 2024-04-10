@@ -165,7 +165,7 @@ function getCharsFromAsciiInterval(start, end) {
  * @param {number} length - Password length
  * @returns {string} text password
  */
-function genratePassword(length) {
+function generatePassword(length) {
     let chars = getCharsFromAsciiInterval(48, 57)
         + getCharsFromAsciiInterval(65, 90)
         + getCharsFromAsciiInterval(97, 122);
@@ -178,27 +178,27 @@ function genratePassword(length) {
     return password;
 }
 
-console.log(genratePassword(5));
-console.log(genratePassword(10));
+console.log(generatePassword(5));
+console.log(generatePassword(10));
 
 /* ------------------------------------------------------*/
 
-// console.info("Pour les questions suivantes enrichissez l'objet 'newbie' ci-dessous.");
+console.info("Pour les questions suivantes enrichissez l'objet 'newbie' ci-dessous.");
 
-// const newbie = {
-//     firstName: "Paul",
-//     lastName: "Bismuth",
-//     birthdate: "1995-02-14",
-//     job: "web developer",
-//     city: "Detroit",
-//     skills: ["HTML", "CSS"]
-// };
+const newbie = {
+    firstName: "Paul",
+    lastName: "Bismuth",
+    birthdate: "1995-02-14",
+    job: "web developer",
+    city: "Detroit",
+    skills: ["HTML", "CSS"]
+};
 
 /* ------------------------------------------------------*/
 
-// console.info("7/ Implémentez une méthode retournant l'âge de Paul.");
+console.info("7/ Implémentez une méthode retournant l'âge de Paul.");
 
-// console.log();
+console.log();
 
 /* ------------------------------------------------------*/
 
