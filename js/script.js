@@ -217,11 +217,19 @@ const newbie = {
     },
 
     /**
-     * Add a new skill in skills list
+     * Add a new skill in skills list.
      * @param {string} skill - New skill name
      */
     addSkill: function (skill) {
         this.skills.push(skill);
+    },
+
+    /**
+     * Get text introduction for object.
+     * @returns {string} user presentation.
+     */
+    introduceMySelf: function () {
+        return `Je m'appelle ${this.lastName}, ${this.firstName}, j'ai ${this.getAge()} ans. Je vis à ${this.city}. Je suis ${this.job} et mes compétences sont ${this.readSkills()}.`;
     }
 };
 
@@ -255,5 +263,5 @@ console.log(newbie.readSkills());
 
 /* ------------------------------------------------------*/
 
-// console.info("10/ Implémentez une méthode qui fait parler Paul pour qu'il se présente avec toutes ses caractéristiques. (Nom, prénom, âge, où il vit, son métier, ...)");
-// console.log();
+console.info("10/ Implémentez une méthode qui fait parler Paul pour qu'il se présente avec toutes ses caractéristiques. (Nom, prénom, âge, où il vit, son métier, ...)");
+console.log(newbie.introduceMySelf());
