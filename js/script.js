@@ -225,9 +225,17 @@ console.log(newbie.getAge());
 
 /* ------------------------------------------------------*/
 
-// console.info("8/ Implémentez une méthode retournant un texte listant les compétences de Paul séparées par des virgules.");
+console.info("8/ Implémentez une méthode retournant un texte listant les compétences de Paul séparées par des virgules.");
 
-// console.log();
+/**
+ * Reads his/her/their skills.
+ * @returns {string} skills in string.
+ */
+newbie.readSkills = function() {
+    return this.skills.join(", ");
+};
+
+console.log(newbie.readSkills());
 
 /* ------------------------------------------------------*/
 
