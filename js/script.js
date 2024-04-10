@@ -107,6 +107,12 @@ console.log(countRepeatedOccurenceOfWords("Ceci est une tarte aux pommes pleines
 
 console.info("5/ Implémentez une fonction qui retourne une valeur entière alétoire comprise entre 2 valeurs passées en paramètres.");
 
+/**
+ * Generate random number between minimum and maximum from parameters
+ * @param {number} min - minimum value for random number
+ * @param {number} max - maximum value for random number 
+ * @returns {number} A random number between minimum and maximum
+ */
 function getRandomBetweenValues(min, max) {
     return Math.floor(min + Math.random() * (max + 1 - min));
     // return parseInt(min + Math.floor(Math.random() * (max - min + 1)))
@@ -120,7 +126,7 @@ console.log(getRandomBetweenValues(-5, 7));
 console.info("6/ Implémentez une fonction qui retourne une chaîne de caractère aléatoire composée de chiffres et de lettres en majuscule et minuscule, de la taille passée en paramètre.");
 
 /**
- * return a random value between 0 and a chosen number.
+ * Return a random value between 0 and a chosen number.
  * @param {number} max - chosen number
  * @returns {number} - random value
  */
@@ -136,38 +142,44 @@ function getRandomValue(max) {
  */
 function getRandomArrayValue(array) {
     return array[getRandomValue(array.length - 1)];
-
 }
 
 
+/**
+ * Get a list of characters from ascii table 
+ * Link below to find ascoii index : https://www.ascii-code.com/
+ * @param {number} start - the begining of the desire part of the table in decimal (value between 0 and 255)
+ * @param {number} end - the end of the desire part of the table in decimal (value between 0 and 255)
+ * @returns {string} string of characters
+ */
+function getCharsFromAsciiInterval(start, end) {
+    let chars = '';
+    for (let i = start; i <= end; i++) {
+        chars += String.fromCharCode(i);
+    }
+    return chars;
+}
 
-function genratePassword(n) {
-    let chars = [];
+/**
+ * Generate a random password
+ * @param {number} length - Password length
+ * @returns {string} text password
+ */
+function genratePassword(length) {
+    let chars = getCharsFromAsciiInterval(48, 57)
+        + getCharsFromAsciiInterval(65, 90)
+        + getCharsFromAsciiInterval(97, 122);
+
     let password = "";
-    for (let i = 48; i <= 57; i++) {
-        chars.push(String.fromCharCode(i))
-
-    }
-    for (let i = 65; i <= 90; i++) {
-        chars.push(String.fromCharCode(i))
-
-    }
-    for (let i = 97; i <= 122; i++) {
-        chars.push(String.fromCharCode(i))
-
-    }
-
-    for (let j = 0; j < n; j++) {
-
-        password += getRandomArrayValue(chars)
+    while (password.length < length) {
+        password += getRandomArrayValue(chars);
     }
 
     return password;
 }
-console.log(genratePassword(5)
-);
-console.log(genratePassword(10)
-);
+
+console.log(genratePassword(5));
+console.log(genratePassword(10));
 
 /* ------------------------------------------------------*/
 
