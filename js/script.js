@@ -200,10 +200,10 @@ const newbie = {
      */
     getAge: function () {
         let birthDate = new Date(this.birthdate);
-        
+
         // Is the birthdate a valid date ?
         if (!(birthDate instanceof Date) || isNaN(birthDate)) return;
-    
+
         let today = new Date();
         let age = today.getFullYear() - birthDate.getFullYear();
         if (
@@ -214,6 +214,14 @@ const newbie = {
             age--;
         }
         return age;
+    },
+
+    /**
+     * Add a new skill in skills list
+     * @param {string} skill - New skill name
+     */
+    addSkill: function (skill) {
+        this.skills.push(skill);
     }
 };
 
@@ -231,7 +239,7 @@ console.info("8/ Implémentez une méthode retournant un texte listant les comp�
  * Reads his/her/their skills.
  * @returns {string} skills in string.
  */
-newbie.readSkills = function() {
+newbie.readSkills = function () {
     return this.skills.join(", ");
 };
 
@@ -239,10 +247,11 @@ console.log(newbie.readSkills());
 
 /* ------------------------------------------------------*/
 
-// console.info("9/ Implémentez une méthode qui ajoute à Paul une compétence passée en paramètre.");
-// console.info("Ajoutez la compétence Javascript et utilisez la méthode précédente pour vous assurer du résultat.");
+console.info("9/ Implémentez une méthode qui ajoute à Paul une compétence passée en paramètre.");
+console.info("Ajoutez la compétence Javascript et utilisez la méthode précédente pour vous assurer du résultat.");
 
-// console.log();
+newbie.addSkill("JavaScript");
+console.log(newbie.readSkills());
 
 /* ------------------------------------------------------*/
 
